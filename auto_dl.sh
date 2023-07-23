@@ -13,7 +13,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker-
 sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
-docker pull louislam/uptime-kuma
-docker run -d -p 3000:3000 --name uptime-kuma louislam/uptime-kuma
-docker pull portainer/portainer-ce
+docker pull louislam/uptime-kuma:latest
+docker run -d -p 3000:3000 --name uptime-kuma louislam/uptime-kuma:latest
+docker pull portainer/portainer-ce:latest
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
