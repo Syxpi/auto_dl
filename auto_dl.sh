@@ -13,7 +13,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker-
 sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
-docker login anonymous
 docker pull louislam/uptime-kuma
 docker run -d -p 3000:3000 --name uptime-kuma louislam/uptime-kuma
 docker pull portainer/portainer-ce
