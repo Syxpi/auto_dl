@@ -5,9 +5,8 @@ apt update
 apt upgrade -y
 
 # Installation des packages + Docker
-apt install neofetch htop sudo -y
+apt install neofetch htop sudo ca-certificates curl gnupg -y
 sudo apt-get update
-sudo apt-get install ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
