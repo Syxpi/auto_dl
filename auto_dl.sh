@@ -18,9 +18,9 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 # Démarrage des conteneurs Docker
-docker run -d -p 3000:3000 --name open-speedtest openspeedtest/latest
-docker run -d -p 3001:3001 --name uptime-kuma louislam/uptime-kuma
-docker run -d -p 19999:19999 --name netdata --cap-add SYS_PTRACE -v /var/run/docker.sock:/var/run/docker.sock:ro titpetric/netdata
+docker run -d -p 3000:3000 --name --restart=always open-speedtest openspeedtest/latest
+docker run -d -p 3001:3001 --name --restart=always uptime-kuma louislam/uptime-kuma
+docker run -d -p 19999:19999 --name netdata --restart=always --cap-add SYS_PTRACE -v /var/run/docker.sock:/var/run/docker.sock:ro titpetric/netdata
 docker run -d -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 
 docker restart portainer
