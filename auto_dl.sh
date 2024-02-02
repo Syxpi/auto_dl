@@ -18,10 +18,11 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 # Démarrage des conteneurs Docker
-docker run -d -p 3000:3000 --name open-speedtest --restart=always openspeedtest/latest
-docker run -d -p 3001:3001 --name uptime-kuma --restart=alwayslouislam/uptime-kuma
-docker run -d -p 19999:19999 --name netdata --restart=always --cap-add SYS_PTRACE -v /var/run/docker.sock:/var/run/docker.sock:ro netdata/netdata
+docker run -d -p 3001:3001 --name uptime-kuma --restart=always louislam/uptime-kuma
 docker run -d -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+docker run -d -p 10011:10011 -p 30033:30033 -p 9987:9987 --restart=always --name teamspeak3 
+sudo docker build -t phpsysinfo github.com/phpsysinfo/phpsysinfo#main
+sudo docker run -i -p 81:80 -t phpsysinfo
 
 docker restart portainer
 
