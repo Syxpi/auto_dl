@@ -19,10 +19,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 # Démarrage des conteneurs Docker
 docker run -d -p 3001:3001 --name uptime-kuma --restart=always louislam/uptime-kuma
-docker run -d -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+docker run -d -p 9443:9443 -p 9000:9000 -p 8000:8000 --http-enabled --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 docker run -d -p 10011:10011 -p 30033:30033 -p 9987:9987 --restart=always --name teamspeak3 
-sudo docker build -t phpsysinfo github.com/phpsysinfo/phpsysinfo#main
-sudo docker run -i -p 81:80 -t phpsysinfo
-
 docker restart portainer
 
