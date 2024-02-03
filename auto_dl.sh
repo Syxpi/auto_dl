@@ -18,10 +18,21 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 mkdir /home/jellyfin && cd /home/jellyfin && mkdir movies music shows 
 curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
-
+mkdir /home/heimdall
+mkdir /var/www/maintenance
 # Démarrage des conteneurs Docker
 docker run -d -p 3001:3001 --name uptime-kuma --restart=always louislam/uptime-kuma
 docker run -d -p 9443:9443 -p 9000:9000 -p 8000:8000 --http-enabled --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 docker run -d -p 10011:10011 -p 30033:30033 -p 9987:9987 --restart=always --name teamspeak3 
+docker run -d --name=heimdall -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -p 8006:80 -p 406:443 -v /home/heimdall:/config --restart=always lscr.io/linuxserver/heimdall:latest
 docker restart portainer
 
+echo "Ports Uptime Kuma : 3001 [TCP]"
+echo "" 
+echo "Ports Portainer : 9443 (HTTPS) [TCP] | 9000 (HTTP) [TCP] | 8000 (Tunnel) [TCP]"
+echo "" 
+echo "Ports TeamSpeak3 : 10011 (Server Querty RAW) [TCP] | 30033 (File Transfert) [TCP] | 9987 (Voice) [UDP]"
+echo ""
+echo "Ports Jellyfin : 8096 (HTTP) [TCP] | 8920 (HTTPS) [TCP]"
+echo "" 
+echo "Ports Heimdall : 8006 (HTTP) [TCP] | 406 (HTTPS) [TCP]"
