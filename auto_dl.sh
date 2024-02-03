@@ -16,6 +16,7 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
 
 # Démarrage des conteneurs Docker
 docker run -d -p 3001:3001 --name uptime-kuma --restart=always louislam/uptime-kuma
