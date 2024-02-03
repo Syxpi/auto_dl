@@ -16,6 +16,7 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+mkdir /home/jellyfin && cd /home/jellyfin && mkdir movies music shows 
 curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
 
 # Démarrage des conteneurs Docker
