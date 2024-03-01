@@ -25,9 +25,11 @@ docker run -d -p 3001:3001 --name uptime-kuma --restart=always louislam/uptime-k
 docker run -d -p 9443:9443 -p 9000:9000 -p 8000:8000 --http-enabled --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce 
 docker run -d --name=heimdall -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -p 8006:80 -p 406:443 -v /home/heimdall:/config --restart=always lscr.io/linuxserver/heimdall:latest
 docker restart portainer
-
+docker compose up -d ./npm/docker-compose.yml
 echo "Ports Uptime Kuma : 3001 [TCP]"
 echo "" 
 echo "Ports Portainer : 9443 (HTTPS) [TCP] | 9000 (HTTP) [TCP] | 8000 (Tunnel) [TCP]"
 echo "" 
 echo "Ports Heimdall : 8006 (HTTP) [TCP] | 406 (HTTPS) [TCP]"
+echo ""
+echo "Ports Nginx Proxy Manager : 80 (HTTP) [TCP/UDP] | 81 (Panel Admin HTTP) [TCP/UDP] | 443 (HTTPS) [TCP/UDP]
