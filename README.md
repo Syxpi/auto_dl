@@ -35,10 +35,10 @@ This script has been tested on the following operating systems:
 This script has automatic updating.
 So no need to come back here. Except to see what has been added.
 
-You will need curl, git and jq installed on your server. If these 3 programs are not installed, it will not work perfectly or just destroy anything.
+You will need curl, git, sudo and jq installed on your server. If these 4 programs are not installed, it will not work perfectly or just destroy anything.
 
 To install them:
-```apt install curl git jq -y```
+```apt install curl git jq sudo -y```
 
 Once this is done, you will just have to do this command:
 ```git clone https://github.com/Syxpi/auto_dl.git```
