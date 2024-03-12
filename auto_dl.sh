@@ -1,40 +1,105 @@
 #!/bin/bash
 
-# Mise à jour du système
-apt update
-apt upgrade -y
+version="0.1"
 
-# Installation des packages + Docker
-apt install neofetch htop sudo ca-certificates curl gnupg -y
-sudo apt-get update
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-echo \
-  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
-  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+check_update() {
+    {
+    latest_version=$(curl -s https://api.github.com/repos/Syxpi/auto_dl/releases/latest | jq -r '.tag_name')
+    download_url=$(curl -s https://api.github.com/repos/Syxpi/auto_dl/releases/latest | jq -r '.assets[0].browser_download_url')
+    curl -L -o "auto_dl.sh" "$download_url"
+} > /dev/null 2>&1
 
-curl https://repo.jellyfin.org/install-debuntu.sh | sudo bash
-mkdir -p /jellyfin/movies musics 
+    if [[ "$latest_version" != "$version" ]]; then
+        echo "Update ($latest_version) is available !"
+        echo "Actual version : $version"
+        echo "Downloading latest version..."
+        echo "Auto_dl Updated.."
+    else
+        echo "You have the latest version. ($version)"  
+    fi
+}
 
-# Démarrage des conteneurs Docker
-docker run -d -p 3001:3001 --name uptime-kuma --restart=always louislam/uptime-kuma
-docker run -d -p 9443:9443 -p 9000:9000 -p 8000:8000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce 
-docker run -d --name=heimdall -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC -p 8006:80 -p 406:443 -v /home/heimdall:/config --restart=always lscr.io/linuxserver/heimdall:latest
-docker restart portainer
-cd npm
-docker compose up -d 
-echo "---------------------------------------------------------------------------------------------------------------"
-echo "Ports Uptime Kuma : 3001 [TCP]"
-echo "" 
-echo "Ports Portainer : 9443 (HTTPS) [TCP] | 9000 (HTTP) [TCP] | 8000 (Tunnel) [TCP]"
-echo "" 
-echo "Ports Heimdall : 8006 (HTTP) [TCP] | 406 (HTTPS) [TCP]"
-echo ""
-echo "Ports Nginx Proxy Manager : 80 (HTTP) [TCP/UDP] | 81 (Panel Admin HTTP) [TCP/UDP] | 443 (HTTPS) [TCP/UDP]"
-echo "---------------------------------------------------------------------------------------------------------------"
-docker ps
-echo "---------------------------------------------------------------------------------------------------------------"
+echo '
+    ___         __                ____
+   /   | __  __/ /_____      ____/ / /
+  / /| |/ / / / __/ __ \    / __  / / 
+ / ___ / /_/ / /_/ /_/ /   / /_/ / /  
+/_/  |_\__,_/\__/\____/____\__,_/_/   
+                     /_____/          
+'
+
+echo "Version: $version"
+
+echo '
+If you want to contribute to this project, go to the following link:
+"https://github.com/Syxpi/auto_dl/pulls"
+
+For any questions, comments, or issues, feel free to contact us at:
+syxpikiller@gmail.com
+
+Project Information:
+- Project Homepage: "https://github.com/Syxpi/auto_dl"
+- License: This script is distributed under the MIT License. See LICENSE file for details.
+
+Thanks for using this script!
+Created by Syxpi.
+'
+
+check_update
+if [[ $EUID -ne 0 ]]; then
+    echo "This script needs to be run on Root Account. Please, Log-In with your Root Account. (su -)"
+    exit 1
+fi
+
+# Menu principal
+while true; do
+    echo "Menu :"
+    echo "1 = Install Docker + Portainer"
+    echo "2 = Install Default Tools (Neofetch, htop, Sudo and Net-Tools)"
+    echo "3 = Install Uptime Kuma [Require Docker]"
+    echo "4 = Install Nginx Proxy Manager [Require Docker]"
+    echo "5 = Install Jellyfin"
+    echo "q = Quit"
+
+    read -p "Enter your choice. : " choice
+
+    case $choice in
+        1)
+            echo "(1) : Install Docker And Portainer"
+            cd $HOME/scripts
+            chmod a+x ./docker-portainer.sh 
+            bash ./docker-portainer.sh
+            ;;
+        2)
+            echo "(2) : Install Default Tools (Neofetch, htop, Sudo and Net-Tools)"
+            cd $HOME/scripts
+            chmod a+x ./default-tools.sh 
+            bash ./default-tools.sh
+            ;;
+        3)
+            echo "Option 3 : Installa Uptime Kuma"
+            cd $HOME/scripts
+            chmod a+x ./uptime-kuma.sh 
+            bash ./uptime-kuma.sh
+            ;;
+        4)
+            echo "Option 4 : Install Nginx Proxy Manager"
+            cd $HOME/scripts
+            chmod a+x ./npm.sh 
+            bash ./npm.sh
+            ;;
+        5)
+            echo "Option 5 : Install Jellyfin"
+            cd $HOME/scripts
+            chmod a+x ./jellyfin.sh 
+            bash ./jellyfin.sh
+            ;;
+        q)
+            echo "Goodbye !"
+            exit 0
+            ;;
+        *)
+            echo "Invalid Choice, please select a valid choice."
+            ;;
+    esac
+done
