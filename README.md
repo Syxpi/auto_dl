@@ -56,3 +56,6 @@ And do not forget to give me your house and your credit card number (just kiddin
 [@Syxpi (Well, it's me)](https://www.github.com/Syxpi)
 
 [@ChatGPT (Wait. Wtf you are doing here? get out of here.)](https://chatgpt.com) [I admit, I used ChatGPT a little]
+
+## Version History
+- March 12, 2024 : Auto_dl has been Released to v0.1
