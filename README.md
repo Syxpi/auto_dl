@@ -43,8 +43,8 @@ To install them:
 Once this is done, you will just have to do this command:
 ```git clone https://github.com/Syxpi/auto_dl.git```
 
-then do this:
-```chmod a+x ./auto_dl.sh && ./auto_dl.sh```
+then do this :
+```cd auto_dl && chmod a+x ./auto_dl.sh && ./auto_dl.sh```
 
 And do not forget to give me your house and your credit card number (just kidding, don’t do it.)
 
