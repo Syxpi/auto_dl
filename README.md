@@ -19,7 +19,7 @@ This script is used to download several things.
 - My Mom. Uh wait. No. it's not the case.
 - And something else ! (The community is free to add features or modify existing ones. These will be checked by me and added if interesting.)
 
-`*` This feature will delete all existing web services on the server, such as Apache or NGINX, because the ports used by these services conflict with NGINX Proxy Manager. I don't want NGINX Proxy Manager to cause chaos and start fires on the server and end up in prison for the rest of my life. (I should probably calm down a bit...)
+```* This feature will delete all existing web services on the server, such as Apache or NGINX, because the ports used by these services conflict with NGINX Proxy Manager. I don't want NGINX Proxy Manager to cause chaos and start fires on the server and end up in prison for the rest of my life. (I should probably calm down a bit...)```
 
 ## Tested Systems
 
