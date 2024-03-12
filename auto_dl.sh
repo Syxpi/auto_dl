@@ -55,7 +55,7 @@ fi
 while true; do
     echo "Menu :"
     echo "1 = Install Docker + Portainer"
-    echo "2 = Install Default Tools (Neofetch, htop, Sudo and Net-Tools)"
+    echo "2 = Install Default Tools (Neofetch, htop and Net-Tools)"
     echo "3 = Install Uptime Kuma [Require Docker]"
     echo "4 = Install Nginx Proxy Manager [Require Docker]"
     echo "5 = Install Jellyfin"
