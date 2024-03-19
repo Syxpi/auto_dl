@@ -72,24 +72,28 @@ while true; do
             ;;
         2)
             echo "(2) : Install Default Tools (Neofetch, htop, Sudo and Net-Tools)"
+            cd ..
             cd scripts
             chmod a+x ./default-tools.sh 
             bash ./default-tools.sh
             ;;
         3)
             echo "Option 3 : Installa Uptime Kuma"
+            cd ..
             cd scripts
             chmod a+x ./uptime-kuma.sh 
             bash ./uptime-kuma.sh
             ;;
         4)
             echo "Option 4 : Install Nginx Proxy Manager"
+            cd ..
             cd scripts
             chmod a+x ./npm.sh 
             bash ./npm.sh
             ;;
         5)
             echo "Option 5 : Install Jellyfin"
+            cd ..
             cd scripts
             chmod a+x ./jellyfin.sh 
             bash ./jellyfin.sh
