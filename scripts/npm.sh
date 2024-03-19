@@ -19,7 +19,9 @@ sudo apt-get remove --purge apache2 apache2-utils
 dpkg -l | grep nginx
 sudo apt-get remove --purge nginx nginx-common
 
-cd $HOME/scripts/npm
+cd ..
+cd scripts
+cd npm
 docker compose up -d 
 sleep 0.2
 echo '
