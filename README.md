@@ -3,6 +3,9 @@
 ## Warning
 **This text was translated using Google Translate. English is not my native language, so sorry in advance if this is not very clear.** 
 
+## Warning 2
+**A huge problem was detected in Auto_dl. I'm currently in the process of fixing it. Meanwhile if you install it, go to the "scripts" directory located in "auto_dl" and run the script you want. (do not forget to chmod a+x the .sh file**
+
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) 
 
 [![made-with-bash](https://img.shields.io/badge/Made%20with-Bash-1f425f.svg)](https://www.gnu.org/software/bash/)
