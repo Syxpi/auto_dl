@@ -66,31 +66,31 @@ while true; do
     case $choice in
         1)
             echo "(1) : Install Docker And Portainer"
-            cd $HOME/scripts
+            cd scripts
             chmod a+x ./docker-portainer.sh 
             bash ./docker-portainer.sh
             ;;
         2)
             echo "(2) : Install Default Tools (Neofetch, htop, Sudo and Net-Tools)"
-            cd $HOME/scripts
+            cd scripts
             chmod a+x ./default-tools.sh 
             bash ./default-tools.sh
             ;;
         3)
             echo "Option 3 : Installa Uptime Kuma"
-            cd $HOME/scripts
+            cd scripts
             chmod a+x ./uptime-kuma.sh 
             bash ./uptime-kuma.sh
             ;;
         4)
             echo "Option 4 : Install Nginx Proxy Manager"
-            cd $HOME/scripts
+            cd scripts
             chmod a+x ./npm.sh 
             bash ./npm.sh
             ;;
         5)
             echo "Option 5 : Install Jellyfin"
-            cd $HOME/scripts
+            cd scripts
             chmod a+x ./jellyfin.sh 
             bash ./jellyfin.sh
             ;;
