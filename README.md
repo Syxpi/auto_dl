@@ -48,7 +48,7 @@ then do this :
 
 And do not forget to give me your house and your credit card number (just kidding, don’t do it.)
 
-**⚠ Run the Script in the script directory ⚠**
+**⚠ Run the Script in the script directory ⚠ (if directory is "/root/auto_dl" for example, just run script inside this directory)**
 **because while doing my tests, I noticed that something I tried didn't work.**
 **If anyone has a solution, please open an issue directly so they can give me the tips. because I'm totally stuck on this.**
 ## Author
