@@ -13,3 +13,4 @@ echo '
 echo '
 If this Script has occured a error, please open a Issue in my GitHub.
 Link : https://github.com/Syxpi/auto_dl/issues/new'
+cd ..

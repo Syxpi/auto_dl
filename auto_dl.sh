@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.1"
+version="0.2"
 
 check_update() {
     {
@@ -47,7 +47,7 @@ Created by Syxpi.
 
 check_update
 if [[ $EUID -ne 0 ]]; then
-    echo "This script needs to be run on Root Account. Please, Log-In with your Root Account. (su -)"
+    echo "This script needs to be run on Root Account. Please, Log-In with your Root Account. (su - or sudo -i)"
     exit 1
 fi
 
@@ -59,6 +59,7 @@ while true; do
     echo "3 = Install Uptime Kuma [Require Docker]"
     echo "4 = Install Nginx Proxy Manager [Require Docker]"
     echo "5 = Install Jellyfin"
+    echo "6 = Remove unused packages"
     echo "q = Quit"
 
     read -p "Enter your choice. : " choice
@@ -72,32 +73,50 @@ while true; do
             ;;
         2)
             echo "(2) : Install Default Tools (Neofetch, htop, Sudo and Net-Tools)"
+<<<<<<< Updated upstream
             cd ..
+=======
+>>>>>>> Stashed changes
             cd scripts
             chmod a+x ./default-tools.sh 
             bash ./default-tools.sh
             ;;
         3)
             echo "Option 3 : Installa Uptime Kuma"
+<<<<<<< Updated upstream
             cd ..
+=======
+>>>>>>> Stashed changes
             cd scripts
             chmod a+x ./uptime-kuma.sh 
             bash ./uptime-kuma.sh
             ;;
         4)
             echo "Option 4 : Install Nginx Proxy Manager"
+<<<<<<< Updated upstream
             cd ..
+=======
+>>>>>>> Stashed changes
             cd scripts
             chmod a+x ./npm.sh 
             bash ./npm.sh
             ;;
         5)
             echo "Option 5 : Install Jellyfin"
+<<<<<<< Updated upstream
             cd ..
+=======
+>>>>>>> Stashed changes
             cd scripts
             chmod a+x ./jellyfin.sh 
             bash ./jellyfin.sh
-            ;;
+            ;;  
+        6)
+            echo "Option 5 : Remove unused packages"
+            cd scripts
+            chmod a+x ./auto_rm.sh 
+            bash ./auto_rm.sh
+            ;;        
         q)
             echo "Goodbye !"
             exit 0
