@@ -60,4 +60,3 @@ And do not forget to give me your house and your credit card number (just kiddin
 ## Version History
 - March 12, 2024 : Auto_dl has been Released to v0.1
 - March 20, 2024 : Auto_dl has been Released to v0.2
--
