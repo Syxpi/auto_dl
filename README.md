@@ -40,7 +40,7 @@ This script has been tested on the following operating systems:
 ~~This script has automatic updating.~~
 ~~So no need to come back here. Except to see what has been added.~~ 
 **See the “Known Bugs” category**
--> https://github.com/Syxpi/auto_dl/README.md#known-bugs
+-> https://github.com/Syxpi/auto_dl/blob/main/README.md#known-bugs
 
 You will need curl, git, sudo and jq installed on your server. If these 4 programs are not installed, it will not work perfectly or just destroy anything.
 
