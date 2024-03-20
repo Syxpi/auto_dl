@@ -9,7 +9,8 @@
 
 ## Known Bugs
 
-- Bug with automatic update. (he declares to find a new version even though we have the latest version) **[Will be temporarily removed from the script]**
+- Bug with automatic update. (he declares to find a new version even though we have the latest version. Additionally, the update does not install at all.) **[Will be temporarily removed from the script]**
+
 ## Features
 
 What is Auto_dl? It is very simple.
@@ -33,10 +34,13 @@ This script has been tested on the following operating systems:
 - CentOS 9 / 8 (didn't work because fuck yum and dnf, my script is based on apt)
 - Fedora 38 (same reason for CentOS)
 
+
 ## Informations
 
-This script has automatic updating.
-So no need to come back here. Except to see what has been added.
+~~This script has automatic updating.~~
+~~So no need to come back here. Except to see what has been added.~~ 
+**See the “Known Bugs” category**
+-> https://github.com/Syxpi/auto_dl/README.md#known-bugs
 
 You will need curl, git, sudo and jq installed on your server. If these 4 programs are not installed, it will not work perfectly or just destroy anything.
 
