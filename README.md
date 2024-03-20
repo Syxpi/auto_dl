@@ -7,6 +7,9 @@
 
 [![made-with-bash](https://img.shields.io/badge/Made%20with-Bash-1f425f.svg)](https://www.gnu.org/software/bash/)
 
+## Known Bugs
+
+- Bug with automatic update. (he declares to find a new version even though we have the latest version) **[Will be temporarily removed from the script]**
 ## Features
 
 What is Auto_dl? It is very simple.
